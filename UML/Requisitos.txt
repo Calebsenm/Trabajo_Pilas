@@ -1,0 +1,27 @@
+Taller Pilas:
+
+1.	Realice un método que identifique si una pila de números enteros es sombre de otra.  
+Decimos que una pila p es sombrero de otra pila q si todos los elementos de p están en q 
+en el mismo orden y en las posiciones más próximas al tope. La pila nula se considera sombrero 
+de cualquier otra pila. Por ejemplo, si A:=[7,9,4,2], B:=[7,9,4,2,5,3,6] y C:=[7,9,2,4,5,3,6],
+ entonces A es sombrero de la pila B, pero no de la pila C.
+
+2. Haga un método entero en Java que para una pila de números enteros 
+que desapilando y apilando elementos devuelva como resultado:
+
+    • -1. Si el elemento de la base de la pila es menor que el número de elementos de la misma.
+    •  0  Si el elemento de la base de la pila es igual que el número de elementos de la misma.
+    • +1. Si el elemento de base de la pila es mayor que el número de elementos de la misma.
+
+Ejemplo: Para la siguiente pila: A:=[0,7,2,8,2,3,2,9,9].  El método deberá devolver el valor 0 
+dado que dicha pila contiene 9 elementos, cantidad que coincide con el valor de la base de ella.
+
+Nota: Tenga en cuenta que: 
+
+•	Cada elemento de la pila solamente podrá ser, a lo sumo, desapilado y apilado una vez.
+•	No podrá utilizar el método LongPila, pero si utilizar contadores.
+•	Al finalizar el proceso la pila deberá quedar con el contenido y estructura iniciales.
+
+Realice el probador que invoque los métodos de pila que permitan apilar, desapilar, 
+mostrar pila y probar los métodos anteriores (Recuerde que para uno de los casos se deberán pedir dos pilas).
+
