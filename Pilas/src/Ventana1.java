@@ -77,34 +77,54 @@ public class Ventana1 extends JFrame implements ActionListener {
         this.setTitle("Pila");
     }
 
-    private void actualizar(DefaultTableModel model, Pila pila, JTable tabla) {
+    private void actualizar(String colum, Pila pila, JTable tabla , DefaultTableModel model ) {
 
-        Pila temporal = pila;
+        Nodo temporal = pila.getCabeza();
+        for (;;) {
+            model.addRow(new Object[] { temporal.getNumero() });
+            
+            System.out.println(pila.mostrarPila());
 
-        while (temporal != null) {
-              temporal.desapilar();
-           model.addRow(new Object[] { temporal});
+            if (temporal != null) {
+                break;
+            }
 
-          
+            temporal = temporal.getSiguiente();
         }
-    
-        System.out.println(temporal);
+
+
+        /*
+         * Pila temporal = pila;
+         * 
+         * for (;;) {
+         * 
+         * modelo.addRow(new Object[] { temporal.desapilar() });
+         * if (temporal != null) {
+         * break;
+         * }
+         * 
+         * }
+         * 
+         */
 
         tabla.setModel(model);
 
     }
 
-    DefaultTableModel modelo = new DefaultTableModel();
-
     public void Update(int eleccion) {
+
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+       
+
 
         if (eleccion == 1) {
             modelo.addColumn(columna1);
-            actualizar(modelo, pila1, tabla1);
+            actualizar(columna1[0], pila1, tabla1 , modelo);
 
         } else if (eleccion == 2) {
             modelo.addColumn(columna2);
-            actualizar(modelo, pila2, tabla2);
+            actualizar(columna2[0], pila2, tabla2 , modelo);
 
         }
     }
@@ -112,7 +132,9 @@ public class Ventana1 extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == cerrar) {
             System.exit(0);
+
         } else if (e.getSource() == apilar) {
+
             int elegir = Integer.parseInt(JOptionPane.showInputDialog(null, "Que lista deseas apilar ? 1  -   2"));
 
             if (elegir == 1 || elegir == 2) {
